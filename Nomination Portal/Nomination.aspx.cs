@@ -17,6 +17,7 @@ namespace Nomination_Portal
         string conn = @"Data Source=localhost; Database=nomination_portal; User ID=root; Password='shubham3597'";
         private int numOfRows = 1;
         int sum_nom_share = 0;
+        int sno = 0;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -24,14 +25,13 @@ namespace Nomination_Portal
             if (IsPostBack)
             {
                 CheckMySqlConnection();
+               
             }
             if (!Page.IsPostBack)
 
             {
 
                 DataTable nom_dt = new DataTable();
-
-                nom_dt.Columns.Add("S.No.");
 
                 nom_dt.Columns.Add("Name");
 
@@ -47,6 +47,16 @@ namespace Nomination_Portal
 
                 ViewState["nom_dt"] = nom_dt;
                 GenerateTable(numOfRows);
+
+                MySqlConnection conn1 = new MySqlConnection(conn);
+                conn1.Open();
+                MySqlCommand cmd = conn1.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "select TRNS_ID from nom_nomination order by TRNS_ID DESC LIMIT 1;";
+                cmd.ExecuteNonQuery();
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>'abc "+cmd+"');</script>");
+                TextBox1.Text = "" + cmd;
+
 
             }
         }
@@ -66,6 +76,7 @@ namespace Nomination_Portal
 
             {
                 text_total_share.Text = "" + sum_nom_share;
+
                 DataTable nom_dt = (DataTable)ViewState["nom_dt"];
 
                 numOfRows = Convert.ToInt32(ViewState["RowsCount"].ToString());
@@ -216,23 +227,28 @@ namespace Nomination_Portal
         }
         protected void Button2_Click(object sender, EventArgs e)
         {
-            MySqlConnection conn1 = new MySqlConnection(conn);
-            conn1.Open();
-            DataTable nom_dt = new DataTable();
-            ViewState["nom_dt"] = nom_dt;
-            GenerateTable(numOfRows);
-            MySqlCommand cmd = conn1.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "insert into nom_nomination values(" + 2 + ", '" + text_name.Text + "', '" + text_relation.Text + "', '" + test_address.Text + "', '" + text_dob.Text + "', '" + text_cont.Text + "', '" + text_share.Text + "', " + 2 + ")";
-            cmd.ExecuteNonQuery();
-            /*foreach (DataRow row in nom_dt.Rows)
-             
+            String text_check = text_total_share.Text.Trim();
+            int total_share_check = Convert.ToInt32(text_check);
+            if (total_share_check == 100)
             {
-                int i = 2;
-                cmd.CommandText = "insert into nom_nomination values("+i+", '" + row["NAME"] + "', '" + row["RELATIONSHIP"] + "', '" + row["ADDRESS"] + "', '" + row["DOB"] + "', '" + row["INVALIDITY_CONTENGENCIES"] + "', '" + row["NOMINEE_SHARE"] + "', "+i+")";
-              
-                i++;
-            }*/
+                MySqlConnection conn1 = new MySqlConnection(conn);
+                conn1.Open();
+                MySqlCommand cmd = conn1.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                for (int i = 0; i < GridViewNom.Rows.Count; i++)
+                {
+                    cmd.CommandText = "insert into nom_nomination values(" + 2 + ", '" + GridViewNom.Rows[i].Cells[0].Text + "', '" + GridViewNom.Rows[i].Cells[1].Text + "', '" + GridViewNom.Rows[i].Cells[2].Text + "', '" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Year + "-" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Month + "-" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Day + "'," + Convert.ToInt32(GridViewNom.Rows[i].Cells[4].Text) + ", '" + GridViewNom.Rows[i].Cells[5].Text + "', " + (i + 1) + ")";
+                    cmd.ExecuteNonQuery();
+                }
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Data Saved, Sucessfully!');</script>");
+            }
+
+            else {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Please complete your total share!');</script>");
+
+            }
+       
+
         }
     }
 

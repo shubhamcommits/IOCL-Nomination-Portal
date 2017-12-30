@@ -87,6 +87,8 @@
 		<p>
             &nbsp;
             
+            <asp:TextBox ID="TextBox1" runat="server" Enabled="False" TextMode="Number"></asp:TextBox>
+            
         </p>
 	
        
@@ -155,13 +157,11 @@
 
                                             <Columns>
 
-                                                <asp:BoundField DataField="Status" HeaderText="Status" SortExpression="NAME" />
-
                                                 <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="NAME" />
 
-                                                <asp:BoundField DataField="Relationship" HeaderText="Relationship" SortExpression="RELATIONSHIP" />
-
                                                 <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="ADDRESS" />
+
+                                                <asp:BoundField DataField="Relationship" HeaderText="Relationship" SortExpression="RELATIONSHIP" />
 
                                                 <asp:BoundField DataField="Date of Birth" HeaderText="Date of Birth" SortExpression="DOB" />
 
