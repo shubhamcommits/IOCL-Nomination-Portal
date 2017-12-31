@@ -81,22 +81,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AlternateNominee.aspx" />
     <Content Include="Web.config" />
     <Content Include="Home.aspx" />
     <Content Include="Nomination.aspx" />
     <Content Include="FinalSubmission.aspx" />
     <Content Include="Preview.aspx" />
     <Content Include="Add Guardian.aspx" />
+    <Content Include="WebForm6.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AlternateNominee.aspx.cs">
-      <DependentUpon>AlternateNominee.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AlternateNominee.aspx.designer.cs">
-      <DependentUpon>AlternateNominee.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
@@ -132,6 +125,13 @@
     </Compile>
     <Compile Include="Add Guardian.aspx.designer.cs">
       <DependentUpon>Add Guardian.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm6.aspx.cs">
+      <DependentUpon>WebForm6.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm6.aspx.designer.cs">
+      <DependentUpon>WebForm6.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <PropertyGroup>

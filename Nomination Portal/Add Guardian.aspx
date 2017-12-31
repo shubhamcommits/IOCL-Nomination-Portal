@@ -94,16 +94,13 @@
       
       
       
-        <table style="width: 100%; caption-side="Add New Nomination"  class="table-bordered table" >
+       <!-- <table style="width: 100%; caption-side="Add New Nomination"  class="table-bordered table"  >
             <tr>
                 <td>Name of Minor Nominee</td>
                 <td>Name of the Guardian</td>
                 <td>Address of the Guardian</td>
                 <td>Date of Birth</td>
-                <td>Relationship with Employee</td>
-                
-
-                            
+                <td>Relationship with Employee</td>                           
             </tr>
             <tr>
             <td><asp:TextBox ID="TextBox1" runat="server" Enabled="False"> </asp:TextBox><p></p></td>
@@ -112,14 +109,23 @@
             <td> <asp:TextBox ID="TextBox4" runat="server" TextMode="Date"></asp:TextBox> <p></p></td>
             <td><asp:TextBox ID="TextBox3" runat="server"> </asp:TextBox><p></p></td>
             </tr>
-         
-            
-
-             
-
            
-        </table>
-        <p>
+        </table>-->
+<asp:Table ID="Table1" runat="server" BorderStyle="Dotted" GridLines="Both" Width="100%" CssClass="table-bordered table" CellSpacing="10" CellPadding="4">
+   <asp:TableHeaderRow runat="server" ForeColor="Snow" BackColor="#212A4F" Font-Bold="true">
+                <asp:TableHeaderCell>Name of Minor Nominee</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Name of the Guardian</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Address of the Guardian</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Date of Birth</asp:TableHeaderCell>
+                <asp:TableHeaderCell>Relationship with Employee</asp:TableHeaderCell>
+        
+            </asp:TableHeaderRow>
+
+</asp:Table>
+
+        <p> 
+            &nbsp;
+
         </p>
        <center><asp:Button ID="Button1" runat="server" Text="Add Guardian" BackColor="#ef7e3e" ForeColor="#000000" Width="28%" OnClick="Button1_Click"  /> <asp:Button ID="Button3" runat="server" Text="Clear" BackColor="#ef7e3e" ForeColor="#000000" Width="35%"  /></center><p></p>
       <div>  &nbsp; &nbsp;  &nbsp;</div>

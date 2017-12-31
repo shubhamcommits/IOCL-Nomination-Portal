@@ -87,7 +87,7 @@
 		<p>
             &nbsp;
             
-            <asp:TextBox ID="TextBox1" runat="server" Enabled="False" TextMode="Number"></asp:TextBox>
+            <asp:TextBox ID="TextBox1" runat="server" Enabled="False"></asp:TextBox>
             
         </p>
 	

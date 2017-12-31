@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm6.aspx.cs" Inherits="Nomination_Portal.WebForm6" %>
+
+<!DOCTYPE html>
+<script runat="server">
+
+</script>
+
 <html lang="en">
 <head>
     <title>Alternative Nomination</title>
@@ -43,9 +49,7 @@
                     <nav class="navbar navbar-default navbar-fixed-top">
                         <div class="navbar-header page-scroll">
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                                <span class="sr-only">Alternative Nomination</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
+                                <span class="sr-only">Shubham Singh</span>
                                 <span class="icon-bar"></span>
 
                             </button>
@@ -84,206 +88,134 @@
 		<p>
             &nbsp;
             
+            <asp:TextBox ID="TextBox1" runat="server" Enabled="False"></asp:TextBox>
+            
         </p>
 	
        
       
       
       
-        <table style="width: 100%; caption-side="Add New Nomination">
+        <table style="width: 100%; caption-side="Add New Nomination"  class="table-bordered table" >
             <tr>
                 <td>Name</td>
-                <td><asp:TextBox ID="TextBox1" runat="server"> </asp:TextBox><p></p>
+                <td><asp:TextBox ID="text_name" runat="server"></asp:TextBox><p>
+                    &nbsp;</p>
+
             </td>
                 
             </tr>
             <tr>
                 <td>Permanent Address</td>
-                <td> <asp:TextBox ID="TextBox2" runat="server"> </asp:TextBox><p></p></td>
+                <td> <asp:TextBox ID="test_address" runat="server" TextMode="MultiLine"></asp:TextBox><p>
+                    &nbsp;</p></td>
                 
             </tr>
             <tr>
                 <td>Relationship with Employee</td>
-                <td><asp:TextBox ID="TextBox3" runat="server"> </asp:TextBox><p></p></td>
+                <td><asp:TextBox ID="text_relation" runat="server"></asp:TextBox><p></p></td>
                 
             </tr>
             <tr>
                 <td>Date of Birth</td>
-                <td> <asp:TextBox ID="TextBox4" runat="server"> </asp:TextBox> <p></p></td>
+                <td> <asp:TextBox ID="text_dob" runat="server" TextMode="Date"></asp:TextBox> <p>
+                    &nbsp;</p></td>
                 
             </tr>
             <tr>
                 <td>Share of Nominee</td>
-                <td><asp:TextBox ID="TextBox7" runat="server"> </asp:TextBox><p></p></td>
+                <td><asp:TextBox ID="text_share" runat="server" TextMode="Number"></asp:TextBox><p>
+                    &nbsp;</p></td>
                 
             </tr>
             
             <tr>
                 <td>Contengencies on happening of which the nomination will become invalid.</td>
-                <td><asp:TextBox ID="TextBox6" runat="server"> </asp:TextBox></td>
+                <td id="tabledata">
+                    <asp:TextBox ID="text_cont" runat="server"></asp:TextBox>
+                    <p>&nbsp;</p>
+                </td>
                 
             </tr>
         </table>
         <p>
         </p>
-       <center><asp:Button ID="Button1" runat="server" Text="Add Nomination" BackColor="#ef7e3e" ForeColor="#000000" Width="50%" /> </center><p></p>
-      <div class="col-md-6">  &nbsp; &nbsp; <asp:Button ID="Button3" runat="server" Text="Clear" BackColor="#ef7e3e" ForeColor="#000000" Width="60%" /> &nbsp;</div>
-        <div class="col-md-6"> &nbsp; &nbsp; <asp:Button ID="Button4" runat="server" Text="Back" BackColor="#ef7e3e" ForeColor="#000000" Width="60%" /></div>
+       <center><asp:Button ID="button_add_nomination" runat="server" Text="Add Nomination" BackColor="#ef7e3e" ForeColor="#000000" Width="28%" OnClick="Button1_Click"  /> <asp:Button ID="button_clear" runat="server" Text="Clear" BackColor="#ef7e3e" ForeColor="#000000" Width="35%"  /></center><p></p>
+      <div>  &nbsp; &nbsp;  &nbsp;</div>
+        <div class="col-md-6"> &nbsp; &nbsp; <asp:Button ID="button_back" runat="server" Text="Back" BackColor="#ef7e3e" ForeColor="#000000" Width="60%" /></div>
 	</div>
 	<div class="col-md-6 about-right">
 
         <asp:Table ID="Table2" runat="Server" CellPadding="4" CellSpacing="10" 
         BorderColor="CadetBlue" Caption="Added Nominations" BorderWidth="1" BorderStyle="Dashed" Width="120%">
-            <asp:TableRow ID="TableRow2" runat="Server" BorderWidth="1">
-                <asp:TableCell ID="TableCell8" runat="Server" BorderWidth="1">
-                     Status
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell4" runat="Server" BorderWidth="1">
-                     Name
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell5" runat="Server" BorderWidth="1">
-                     Relationship
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell1" runat="Server" BorderWidth="1">
-                     Date of Birth
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell2" runat="Server" BorderWidth="1">
-                     Nominee Share
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell3" runat="Server" BorderWidth="1">
-                     Invalid Contengencies
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow ID="TableRow3" runat="Server">
-                <asp:TableCell ID="TableCell6" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell7" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell9" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell10" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell11" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell12" runat="Server">
-                    
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow ID="TableRow1" runat="Server">
-                <asp:TableCell ID="TableCell13" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell14" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell15" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell16" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell17" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell18" runat="Server">
-                    
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow ID="TableRow4" runat="Server">
-                <asp:TableCell ID="TableCell19" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell20" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell21" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell22" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell23" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell24" runat="Server">
-                    
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow ID="TableRow5" runat="Server">
-                <asp:TableCell ID="TableCell25" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell26" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell27" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell28" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell29" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell30" runat="Server">
-                    
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow ID="TableRow6" runat="Server">
-                <asp:TableCell ID="TableCell31" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell32" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell33" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell34" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell35" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell36" runat="Server">
-                    
-                </asp:TableCell>
-            </asp:TableRow>
-            <asp:TableRow ID="TableRow7" runat="Server">
-                <asp:TableCell ID="TableCell37" runat="Server">
-                    Total Share
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell38" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell39" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell40" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell41" runat="Server">
-                    
-                </asp:TableCell>
-                <asp:TableCell ID="TableCell42" runat="Server">
-                    
-                </asp:TableCell>
-            </asp:TableRow>
         </asp:Table>
-	</div>
+        <asp:Panel ID="Panel1" runat="server" Width="120%" ScrollBars="Auto">
+               <asp:GridView ID="GridViewNom" runat="server" AutoGenerateColumns="False" CellPadding="4"
+
+                                            ForeColor="#333333" Width="1343px" GridLines="None"> 
+
+                                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+
+                                            <Columns>
+
+                                                <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="NAME" />
+
+                                                <asp:BoundField DataField="Address" HeaderText="Address" SortExpression="ADDRESS" />
+
+                                                <asp:BoundField DataField="Relationship" HeaderText="Relationship" SortExpression="RELATIONSHIP" />
+
+                                                <asp:BoundField DataField="Date of Birth" HeaderText="Date of Birth" SortExpression="DOB" />
+
+                                                 <asp:BoundField DataField="Nominee Share" HeaderText="Nominee Share" SortExpression="NOMINEE_SHARE" />
+
+                                                <asp:BoundField DataField="Invalid Contengencies" HeaderText="Invalid Contengencies"
+
+                                                    SortExpression="INVALIDITY_CONTIGENCIES" />
+                                            </Columns>
+
+                                            <EditRowStyle BackColor="#999999" />
+
+                                            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+
+                                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+
+                                            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+
+                                            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+
+                                            <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+
+                                            <SortedAscendingCellStyle BackColor="#E9E7E2" />
+
+                                            <SortedAscendingHeaderStyle BackColor="#506C8C" />
+
+                                            <SortedDescendingCellStyle BackColor="#FFFDF8" />
+
+                                            <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+
+                                        </asp:GridView>
+        </asp:Panel>
+        
+            <p> &nbsp; </p>
+        <div class="col-md-6">
+        <asp:Label ID="Label1" runat="server" Text="Total Share"></asp:Label></div>
+        <div class="col-md-6">
+     <asp:TextBox ID="text_total_share" runat="server" Enabled="False"></asp:TextBox></div>
+	
+        </div>
 	<div class="clearfix">
+      
+
+	    
       
 
 	</div>
 
      <div class="w3_banner_info_grid" data="aos-slide-up">  
          <p></p>
-   <center><asp:Button ID="Button2" runat="server" Text="Save and Proceed" ForeColor="White" BackColor="#212a4f" Width="" Height=""></asp:Button><!--<a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">READ INSTRUCTIONS & PROCEED</a>--></center>
+   <center><asp:Button ID="button_save" runat="server" Text="Save and Proceed" ForeColor="White" BackColor="#212a4f" Width="" Height="" OnClick="Button2_Click"></asp:Button><!--<a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">READ INSTRUCTIONS & PROCEED</a>-->
+        
+	     </center>
 
          </div>               
 </div>
@@ -310,6 +242,12 @@
     <!-- Gallery-Tab-JavaScript -->
     <script src="js/cbpFWTabs.js"></script>
     <script>
+
+        
+
+        function myDeleteFunction() {
+            document.getElementById("Table2").deleteRow(0);
+        } 
         (function () {
             [].slice.call(document.querySelectorAll('.tabs')).forEach(function (el) {
                 new CBPFWTabs(el);

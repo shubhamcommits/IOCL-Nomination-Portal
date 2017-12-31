@@ -1238,7 +1238,11 @@ iframe {
 /* copyright */
 .copyright-agile {
     background: #272727;
-    padding: 1em 0;
+    padding:1em 0;
+    height: auto;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
 .copyright-agile h4 {
     color: #fff;

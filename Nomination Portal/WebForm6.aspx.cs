@@ -12,13 +12,13 @@ using MySql.Data.MySqlClient;
 
 namespace Nomination_Portal
 {
-    public partial class WebForm2 : System.Web.UI.Page
+    public partial class WebForm6 : System.Web.UI.Page
     {
-        string conn = @"Data Source=localhost; Database=nomination_portal; User ID=root; Password='shubham3597'";
+        static string conn = @"Data Source=localhost; Database=nomination_portal; User ID=root; Password='shubham3597'";
         private int numOfRows = 1;
         int sum_nom_share = 0;
         int sno = 0;
-
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,6 +26,7 @@ namespace Nomination_Portal
             {
                 CheckMySqlConnection();
                
+
             }
             if (!Page.IsPostBack)
 
@@ -46,18 +47,16 @@ namespace Nomination_Portal
                 nom_dt.Columns.Add("Invalid Contengencies");
 
                 ViewState["nom_dt"] = nom_dt;
-
                 GenerateTable(numOfRows);
+                TextBox1.Text = Request.QueryString.ToString();
 
-                MySqlConnection conn1 = new MySqlConnection(conn);
+               /* MySqlConnection conn1 = new MySqlConnection(conn);
                 conn1.Open();
                 MySqlCommand cmd = conn1.CreateCommand();
-                
                 cmd.CommandType = CommandType.Text;
                 cmd.CommandText = "select TRNS_ID from nom_nomination order by TRNS_ID DESC LIMIT 1";
-                MySqlDataReader mdr = cmd.ExecuteReader();
-                mdr.Read();
-                TextBox1.Text = "" + (mdr.GetInt32("TRNS_ID")+1);
+                TextBox1.Text = "" + (cmd.ExecuteNonQuery() + 1);*/
+
 
 
             }
@@ -77,6 +76,7 @@ namespace Nomination_Portal
             if (ViewState["RowsCount"] != null)
 
             {
+                
                 text_total_share.Text = "" + sum_nom_share;
 
                 DataTable nom_dt = (DataTable)ViewState["nom_dt"];
@@ -236,23 +236,35 @@ namespace Nomination_Portal
                 MySqlConnection conn1 = new MySqlConnection(conn);
                 conn1.Open();
                 MySqlCommand cmd = conn1.CreateCommand();
+                MySqlCommand cmd1 = conn1.CreateCommand();
                 cmd.CommandType = CommandType.Text;
+                cmd1.CommandType = CommandType.Text;
                 for (int i = 0; i < GridViewNom.Rows.Count; i++)
                 {
-                    cmd.CommandText = "insert into nom_nomination values(" + Convert.ToInt32(TextBox1.Text) + ", '" + GridViewNom.Rows[i].Cells[0].Text + "', '" + GridViewNom.Rows[i].Cells[1].Text + "', '" + GridViewNom.Rows[i].Cells[2].Text + "', '" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Year + "-" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Month + "-" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Day + "'," + Convert.ToInt32(GridViewNom.Rows[i].Cells[4].Text) + ", '" + GridViewNom.Rows[i].Cells[5].Text + "', " + (i + 1) + ")";
+                    cmd.CommandText = "insert into nom_alt_nomination values(" + 2 + ", '" + GridViewNom.Rows[i].Cells[0].Text + "', '" + GridViewNom.Rows[i].Cells[1].Text + "', '" + GridViewNom.Rows[i].Cells[2].Text + "', '" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Year + "-" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Month + "-" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Day + "'," + Convert.ToInt32(GridViewNom.Rows[i].Cells[4].Text) + ", '" + GridViewNom.Rows[i].Cells[5].Text + "', " + (i + 1) + ")";
                     cmd.ExecuteNonQuery();
                 }
-                
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Data Saved, Sucessfully!');</script>");
-                Response.Redirect("WebForm6.aspx?" + TextBox1.Text);
+
+               // Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Data Saved, Sucessfully!');</script>");
+                cmd1.CommandText = "select count(*) from nom_nomination where dob >= date_sub(now(), interval 18 year)";
+
+                MySqlDataReader mdr = cmd1.ExecuteReader();
+                mdr.Read();
+
+                if (mdr.GetInt32("count(*)") > 0) {
+                    Response.Redirect("Add Guardian.aspx?" + mdr.GetInt32("count(*)"));
+                }               
+             
+                    
 
             }
 
-            else {
+            else
+            {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Please complete your total share!');</script>");
 
             }
-       
+
 
         }
     }
