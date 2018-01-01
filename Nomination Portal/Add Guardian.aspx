@@ -122,8 +122,10 @@
             </asp:TableHeaderRow>
 
 </asp:Table>
+       <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1"></asp:GridView>
 
-        <p> 
+    <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:nomination_portalConnectionString %>' ProviderName='<%$ ConnectionStrings:nomination_portalConnectionString.ProviderName %>' SelectCommand="select NAME from nom_nomination where dob >= date_sub(now(), interval 18 year)"></asp:SqlDataSource>
+    <p> 
             &nbsp;
 
         </p>
@@ -138,7 +140,7 @@
 
      <div class="w3_banner_info_grid" data="aos-slide-up">  
          <p></p>
-   <center><asp:Button ID="Button4" runat="server" Text="Back" BackColor="#ef7e3e" ForeColor="#000000" Width="22%" /><asp:Button ID="Button2" runat="server" Text="Save and Proceed" ForeColor="White" BackColor="#212a4f" Width="" Height=""  PostBackUrl="~/AlternateNominee.aspx"></asp:Button><!--<a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">READ INSTRUCTIONS & PROCEED</a>-->
+   <center><asp:Button ID="Button4" runat="server" Text="Back" BackColor="#ef7e3e" ForeColor="#000000" Width="22%" /><asp:Button ID="Button2" runat="server" Text="Save and Proceed" ForeColor="White" BackColor="#212a4f" Width="" Height=""  PostBackUrl="~/AlternateNominee.aspx" OnClick="Button2_Click"></asp:Button><!--<a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">READ INSTRUCTIONS & PROCEED</a>-->
         
 	     </center>
 

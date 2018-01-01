@@ -42,7 +42,7 @@ namespace Nomination_Portal
 
             MySqlDataReader mdr = cmd1.ExecuteReader();
             MySqlDataAdapter mda = new MySqlDataAdapter(cmd1);
-            mda.Fill(Table1);
+            //mda.Fill(Table1);
 
          
                 // Now iterate through the table and add your controls 
@@ -57,10 +57,7 @@ namespace Nomination_Portal
 
                     // Set a unique ID for each TextBox added
                     tb.ID = "TextBoxRow_" + i + "Col_" + j;
-                   while (mdr.Read())
-                    {
-                       tb.Text = mdr.GetString("Name");
-                    }
+                   
                     // Add the control to the TableCell
                     cell.Controls.Add(tb);
                         // Add the TableCell to the TableRow
@@ -82,10 +79,25 @@ namespace Nomination_Portal
             conn1.Open();
             MySqlCommand cmd = conn1.CreateCommand();
             cmd.CommandType = CommandType.Text;
-
-            cmd.CommandText = "insert into add_guardian values('" + "shubham" + "', '" + TextBox7.Text + "', '" + TextBox2.Text + "', '" + TextBox4.Text + "', '" + TextBox3.Text + "')";
-            cmd.ExecuteNonQuery();
+            string message = "";
+            foreach (TextBox textBox in Table1.Controls.OfType<TextBox>())
+            {
+                /* foreach (TableRow tr in Table1.Rows)
+                 {
+                     cmd.CommandText = "insert into add_guardian values('" + "shubham" + "', '" + textBox.Text + "', '" + textBox.Text + "', '" + TextBox4.Text + "', '" + TextBox3.Text + "')";
+                     cmd.ExecuteNonQuery();
+                 }*/
+                textBox.Text = "mc";
+            }
+            //ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "alert('" + message + "');", true);
+            //cmd.CommandText = "insert into add_guardian values('" + "shubham" + "', '" + TextBox7.Text + "', '" + TextBox2.Text + "', '" + TextBox4.Text + "', '" + TextBox3.Text + "')";
+            //cmd.ExecuteNonQuery();
            
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
