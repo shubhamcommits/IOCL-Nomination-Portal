@@ -16,17 +16,21 @@ namespace Nomination_Portal
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            Response.Write("" + Table1.Rows.Count);
+            
             if (!Page.IsPostBack)
             {
 
                 TextBox1.Text = Request.QueryString.ToString();
                 int number = Convert.ToInt32(TextBox1.Text);
-                GenerateTable(5, number);
-                
+                //GenerateTable(5, number);
                
-              
+
+
 
             }
+           
         }
 
         private void GenerateTable(int colsCount, int rowsCount)
@@ -44,33 +48,53 @@ namespace Nomination_Portal
             MySqlDataAdapter mda = new MySqlDataAdapter(cmd1);
             //mda.Fill(Table1);
 
-         
-                // Now iterate through the table and add your controls 
-                for (int i = 0; i < rowsCount; i++)
+
+            // Now iterate through the table and add your controls 
+            int i = 0;
+            TextBox tb;
+            RequiredFieldValidator rfv;
+                while (mdr.Read())  
                 {
                     TableRow row = new TableRow();
                     for (int j = 0; j < colsCount; j++)
                     {
                     TableCell cell = new TableCell();
-                    TextBox tb = new TextBox();
+                    tb = new TextBox();
+                    rfv = new RequiredFieldValidator();
 
 
                     // Set a unique ID for each TextBox added
                     tb.ID = "TextBoxRow_" + i + "Col_" + j;
+                    rfv.ID= "rfvRow_" + i + "Col_" + j;
+                    rfv.ControlToValidate = tb.ID;
+                    rfv.ErrorMessage = "*";
                    
+
+                    if (j == 0)
+                    {
+                        tb.Text = mdr["name"].ToString();
+                        
+                        tb.Enabled = false;
+                    }
                     // Add the control to the TableCell
                     cell.Controls.Add(tb);
                         // Add the TableCell to the TableRow
                         row.Cells.Add(cell);
                     }
 
-                    // Add the TableRow to the Table
-                    Table1.Rows.Add(row);
-                }
-         
+                // Add the TableRow to the Table
+               
+                Table1.Rows.Add(row);
+                i++;
+                
 
-            
-         
+
+                }
+
+           
+
+
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -79,20 +103,16 @@ namespace Nomination_Portal
             conn1.Open();
             MySqlCommand cmd = conn1.CreateCommand();
             cmd.CommandType = CommandType.Text;
-            string message = "";
-            foreach (TextBox textBox in Table1.Controls.OfType<TextBox>())
+            
+            for (int i = 0; i < GridView1.Rows.Count; i++)
             {
-                /* foreach (TableRow tr in Table1.Rows)
-                 {
-                     cmd.CommandText = "insert into add_guardian values('" + "shubham" + "', '" + textBox.Text + "', '" + textBox.Text + "', '" + TextBox4.Text + "', '" + TextBox3.Text + "')";
-                     cmd.ExecuteNonQuery();
-                 }*/
-                textBox.Text = "mc";
+                cmd.CommandText = "insert into add_guardian values('" + GridView1.Rows[i].Cells[0].Text + "', '" + ((TextBox)GridView1.Rows[i].FindControl("tb_guardian_name")).Text + "', '" + ((TextBox)GridView1.Rows[i].FindControl("tb_guardian_address")).Text + "', '" + Convert.ToDateTime(((TextBox)GridView1.Rows[i].FindControl("tb_guardian_dob")).Text).Year + "-" + Convert.ToDateTime(((TextBox)GridView1.Rows[i].FindControl("tb_guardian_dob")).Text).Month + "-" + Convert.ToDateTime(((TextBox)GridView1.Rows[i].FindControl("tb_guardian_dob")).Text).Day + "', '" + ((TextBox)GridView1.Rows[i].FindControl("tb_guardian_relation")).Text + "', " + (i + 1) +","+5+ ")";
+                cmd.ExecuteNonQuery();
             }
             //ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "alert('" + message + "');", true);
             //cmd.CommandText = "insert into add_guardian values('" + "shubham" + "', '" + TextBox7.Text + "', '" + TextBox2.Text + "', '" + TextBox4.Text + "', '" + TextBox3.Text + "')";
             //cmd.ExecuteNonQuery();
-           
+
         }
 
         protected void Button2_Click(object sender, EventArgs e)

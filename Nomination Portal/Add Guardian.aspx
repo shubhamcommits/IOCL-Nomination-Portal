@@ -111,7 +111,7 @@
             </tr>
            
         </table>-->
-<asp:Table ID="Table1" runat="server" BorderStyle="Dotted" GridLines="Both" Width="100%" CssClass="table-bordered table" CellSpacing="10" CellPadding="4">
+<!--<asp:Table ID="Table1" runat="server" BorderStyle="Dotted" GridLines="Both" Width="100%" CssClass="table-bordered table" CellSpacing="10" CellPadding="4">
    <asp:TableHeaderRow runat="server" ForeColor="Snow" BackColor="#212A4F" Font-Bold="true">
                 <asp:TableHeaderCell>Name of Minor Nominee</asp:TableHeaderCell>
                 <asp:TableHeaderCell>Name of the Guardian</asp:TableHeaderCell>
@@ -121,14 +121,39 @@
         
             </asp:TableHeaderRow>
 
-</asp:Table>
-       <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1"></asp:GridView>
+</asp:Table>-->
+       <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" BorderStyle="Dotted" GridLines="Both" Width="100%" CssClass="table-bordered table" CellSpacing="10" CellPadding="4" Font-Bold="true">
+           <Columns>
+        <asp:BoundField DataField="name" HeaderText="Name" SortExpression="Name" />
+        <asp:TemplateField HeaderText="Name of the Guardian">
+            <ItemTemplate>
+                <asp:TextBox ID="tb_guardian_name" runat="server" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="tb_guardian_name" ForeColor="Red"></asp:RequiredFieldValidator>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="Address of the Guardian">
+            <ItemTemplate>
+                <asp:TextBox ID="tb_guardian_address" runat="server" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="tb_guardian_address" ForeColor="Red"></asp:RequiredFieldValidator>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="Date of Birth">
+            <ItemTemplate>
+                <asp:TextBox ID="tb_guardian_dob" runat="server" TextMode="Date" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ControlToValidate="tb_guardian_dob" ForeColor="Red"></asp:RequiredFieldValidator>
+            </ItemTemplate>
+        </asp:TemplateField>
+        <asp:TemplateField HeaderText="Relationship with Employee">
+            <ItemTemplate>
+                <asp:TextBox ID="tb_guardian_relation" runat="server" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ControlToValidate="tb_guardian_relation" ForeColor="Red"></asp:RequiredFieldValidator>
+            </ItemTemplate>
+        </asp:TemplateField>
+    </Columns>
+           </asp:GridView>
 
-    <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:nomination_portalConnectionString %>' ProviderName='<%$ ConnectionStrings:nomination_portalConnectionString.ProviderName %>' SelectCommand="select NAME from nom_nomination where dob >= date_sub(now(), interval 18 year)"></asp:SqlDataSource>
-    <p> 
-            &nbsp;
-
-        </p>
+<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString='<%$ ConnectionStrings:nomination_portalConnectionString %>' ProviderName='<%$ ConnectionStrings:nomination_portalConnectionString.ProviderName %>' SelectCommand="select NAME from nom_nomination where dob >= date_sub(now(), interval 18 year)"></asp:SqlDataSource>
+        <p></p>
        <center><asp:Button ID="Button1" runat="server" Text="Add Guardian" BackColor="#ef7e3e" ForeColor="#000000" Width="28%" OnClick="Button1_Click"  /> <asp:Button ID="Button3" runat="server" Text="Clear" BackColor="#ef7e3e" ForeColor="#000000" Width="35%"  /></center><p></p>
       <div>  &nbsp; &nbsp;  &nbsp;</div>
         
