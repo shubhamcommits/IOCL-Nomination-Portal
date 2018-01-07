@@ -88,6 +88,8 @@
     <Content Include="Preview.aspx" />
     <Content Include="Add Guardian.aspx" />
     <Content Include="WebForm6.aspx" />
+    <Content Include="front.aspx" />
+    <Content Include="Login.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,6 +134,20 @@
     </Compile>
     <Compile Include="WebForm6.aspx.designer.cs">
       <DependentUpon>WebForm6.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="front.aspx.cs">
+      <DependentUpon>front.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="front.aspx.designer.cs">
+      <DependentUpon>front.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <PropertyGroup>

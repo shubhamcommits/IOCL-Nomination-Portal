@@ -88,7 +88,7 @@
 		<p>
             &nbsp;
             
-            <asp:TextBox ID="TextBox1" runat="server" Enabled="False"></asp:TextBox>
+            <asp:TextBox ID="TextBox1" runat="server" Visible="true "></asp:TextBox>
             
         </p>
 	
@@ -99,7 +99,9 @@
         <table style="width: 100%; caption-side="Add New Nomination"  class="table-bordered table" >
             <tr>
                 <td>Name</td>
-                <td><asp:TextBox ID="text_name" runat="server"></asp:TextBox><p>
+                <td><asp:TextBox ID="text_name" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="text_name" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <p>
                     &nbsp;</p>
 
             </td>
@@ -107,24 +109,31 @@
             </tr>
             <tr>
                 <td>Permanent Address</td>
-                <td> <asp:TextBox ID="test_address" runat="server" TextMode="MultiLine"></asp:TextBox><p>
+                <td> <asp:TextBox ID="test_address" runat="server" TextMode="MultiLine"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="test_address" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <p>
                     &nbsp;</p></td>
                 
             </tr>
             <tr>
                 <td>Relationship with Employee</td>
-                <td><asp:TextBox ID="text_relation" runat="server"></asp:TextBox><p></p></td>
+                <td><asp:TextBox ID="text_relation" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ControlToValidate="text_relation" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <p></p></td>
                 
             </tr>
             <tr>
                 <td>Date of Birth</td>
-                <td> <asp:TextBox ID="text_dob" runat="server" TextMode="Date"></asp:TextBox> <p>
+                <td> <asp:TextBox ID="text_dob" runat="server" TextMode="Date"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*" ControlToValidate="text_dob" ForeColor="Red"></asp:RequiredFieldValidator><p>
                     &nbsp;</p></td>
                 
             </tr>
             <tr>
                 <td>Share of Nominee</td>
-                <td><asp:TextBox ID="text_share" runat="server" TextMode="Number"></asp:TextBox><p>
+                <td><asp:TextBox ID="text_share" runat="server" TextMode="Number"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ControlToValidate="text_share" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <p>
                     &nbsp;</p></td>
                 
             </tr>
@@ -133,6 +142,7 @@
                 <td>Contengencies on happening of which the nomination will become invalid.</td>
                 <td id="tabledata">
                     <asp:TextBox ID="text_cont" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*" ControlToValidate="text_cont" ForeColor="Red"></asp:RequiredFieldValidator>
                     <p>&nbsp;</p>
                 </td>
                 
@@ -140,9 +150,9 @@
         </table>
         <p>
         </p>
-       <center><asp:Button ID="button_add_nomination" runat="server" Text="Add Nomination" BackColor="#ef7e3e" ForeColor="#000000" Width="28%" OnClick="Button1_Click"  /> <asp:Button ID="button_clear" runat="server" Text="Clear" BackColor="#ef7e3e" ForeColor="#000000" Width="35%"  /></center><p></p>
+       <center><asp:Button ID="button_add_nomination" runat="server" Text="Add Nomination" BackColor="#ef7e3e" ForeColor="#000000" Width="35%" OnClick="Button1_Click"  /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="button_clear" runat="server" Text="Clear" BackColor="#ef7e3e" ForeColor="#000000" Width="35%"  /></center><p></p>
       <div>  &nbsp; &nbsp;  &nbsp;</div>
-        <div class="col-md-6"> &nbsp; &nbsp; <asp:Button ID="button_back" runat="server" Text="Back" BackColor="#ef7e3e" ForeColor="#000000" Width="60%" /></div>
+        <div class="col-md-6"> &nbsp; &nbsp; </div>
 	</div>
 	<div class="col-md-6 about-right">
 
@@ -213,7 +223,12 @@
 
      <div class="w3_banner_info_grid" data="aos-slide-up">  
          <p></p>
-   <center><asp:Button ID="button_save" runat="server" Text="Save and Proceed" ForeColor="White" BackColor="#212a4f" Width="" Height="" OnClick="Button2_Click"></asp:Button><!--<a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">READ INSTRUCTIONS & PROCEED</a>-->
+         <center> <asp:Button ID="button_back" runat="server" Text="Back" BackColor="#212A4F" ForeColor="White" Width="20%" /> &nbsp;&nbsp;&nbsp;&nbsp;
+
+       <asp:Button ID="button_save" runat="server" Text="Save and Proceed" ForeColor="Black" BackColor="#EF7E3E" Width="" Height="" OnClick="Button2_Click"></asp:Button><!--<a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">READ INSTRUCTIONS & PROCEED</a>-->
+        
+	     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+             <asp:Button ID="Button1" runat="server" BackColor="#212A4F" OnClick="Button1_Click1" Text="Skip" Width="20%" ForeColor="White" />
         
 	     </center>
 

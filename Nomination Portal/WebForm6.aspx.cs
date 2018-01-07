@@ -49,6 +49,7 @@ namespace Nomination_Portal
                 ViewState["nom_dt"] = nom_dt;
                 GenerateTable(numOfRows);
                 TextBox1.Text = Request.QueryString.ToString();
+                //int id = Convert.ToInt32(TextBox1.Text);
 
                /* MySqlConnection conn1 = new MySqlConnection(conn);
                 conn1.Open();
@@ -241,7 +242,7 @@ namespace Nomination_Portal
                 cmd1.CommandType = CommandType.Text;
                 for (int i = 0; i < GridViewNom.Rows.Count; i++)
                 {
-                    cmd.CommandText = "insert into nom_alt_nomination values(" + 2 + ", '" + GridViewNom.Rows[i].Cells[0].Text + "', '" + GridViewNom.Rows[i].Cells[1].Text + "', '" + GridViewNom.Rows[i].Cells[2].Text + "', '" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Year + "-" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Month + "-" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Day + "'," + Convert.ToInt32(GridViewNom.Rows[i].Cells[4].Text) + ", '" + GridViewNom.Rows[i].Cells[5].Text + "', " + (i + 1) + ")";
+                    cmd.CommandText = "insert into nom_alt_nomination values(" + Convert.ToInt32(TextBox1.Text) + ", '" + GridViewNom.Rows[i].Cells[0].Text + "', '" + GridViewNom.Rows[i].Cells[1].Text + "', '" + GridViewNom.Rows[i].Cells[2].Text + "', '" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Year + "-" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Month + "-" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Day + "'," + Convert.ToInt32(GridViewNom.Rows[i].Cells[4].Text) + ", '" + GridViewNom.Rows[i].Cells[5].Text + "', " + (i + 1) + ")";
                     cmd.ExecuteNonQuery();
                 }
 
@@ -266,6 +267,33 @@ namespace Nomination_Portal
             }
 
 
+        }
+
+        protected void Button1_Click1(object sender, EventArgs e)
+        {
+            try
+            {
+                MySqlConnection conn1 = new MySqlConnection(conn);
+                conn1.Open();
+                MySqlCommand cmd = conn1.CreateCommand();
+
+                cmd.CommandType = CommandType.Text;
+
+                cmd.CommandText = "insert into nom_alt_nomination values(" + Convert.ToInt32(TextBox1.Text) + ", '" + "null" + "', '" + "null" + "', '" + "null" + "','" + "0000-00-00" + "' ," + 0 + ", '" + "null" + "', " + 1 + ")";
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (HttpException h)
+            {
+
+                h.GetHtmlErrorMessage();
+
+
+            }
+            catch (MySqlException m)
+            {
+              m.GetBaseException();
+            }
         }
     }
 

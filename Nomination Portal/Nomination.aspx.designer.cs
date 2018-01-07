@@ -103,15 +103,6 @@ namespace Nomination_Portal {
         protected global::System.Web.UI.WebControls.Button button_clear;
         
         /// <summary>
-        /// button_back control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button button_back;
-        
-        /// <summary>
         /// Table2 control.
         /// </summary>
         /// <remarks>
@@ -155,6 +146,15 @@ namespace Nomination_Portal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox text_total_share;
+        
+        /// <summary>
+        /// button_back control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button button_back;
         
         /// <summary>
         /// button_save control.

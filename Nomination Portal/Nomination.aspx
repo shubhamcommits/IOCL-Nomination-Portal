@@ -139,9 +139,9 @@
         </table>
         <p>
         </p>
-       <center><asp:Button ID="button_add_nomination" runat="server" Text="Add Nomination" BackColor="#ef7e3e" ForeColor="#000000" Width="28%" OnClick="Button1_Click"  /> <asp:Button ID="button_clear" runat="server" Text="Clear" BackColor="#ef7e3e" ForeColor="#000000" Width="35%"  /></center><p></p>
+       <center><asp:Button ID="button_add_nomination" runat="server" Text="Add Nomination" BackColor="#ef7e3e" ForeColor="#000000" Width="35%" OnClick="Button1_Click"  /> &nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="button_clear" runat="server" Text="Clear" BackColor="#ef7e3e" ForeColor="#000000" Width="35%"  /></center><p></p>
       <div>  &nbsp; &nbsp;  &nbsp;</div>
-        <div class="col-md-6"> &nbsp; &nbsp; <asp:Button ID="button_back" runat="server" Text="Back" BackColor="#ef7e3e" ForeColor="#000000" Width="60%" /></div>
+        <div class="col-md-6"> &nbsp; &nbsp; </div>
 	</div>
 	<div class="col-md-6 about-right">
 
@@ -212,7 +212,7 @@
 
      <div class="w3_banner_info_grid" data="aos-slide-up">  
          <p></p>
-   <center><asp:Button ID="button_save" runat="server" Text="Save and Proceed" ForeColor="White" BackColor="#212a4f" Width="" Height="" OnClick="Button2_Click"></asp:Button><!--<a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">READ INSTRUCTIONS & PROCEED</a>-->
+   <center> <asp:Button ID="button_back" runat="server" Text="Back" BackColor="#212A4F" ForeColor="White" Width="35%" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="button_save" runat="server" Text="Save and Proceed" ForeColor="White" BackColor="#212a4f" Width="35%" Height="" OnClick="Button2_Click"></asp:Button>&nbsp; <!--<a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">READ INSTRUCTIONS & PROCEED</a>-->
         
 	     </center>
 
