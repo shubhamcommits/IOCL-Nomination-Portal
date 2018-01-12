@@ -100,9 +100,8 @@
             <tr>
                 <td>Name</td>
                 <td><asp:TextBox ID="text_name" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="text_name" ForeColor="Red"></asp:RequiredFieldValidator>
                     <p>
-                    &nbsp;</p>
+                        &nbsp;</p>
 
             </td>
                 
@@ -110,9 +109,8 @@
             <tr>
                 <td>Permanent Address</td>
                 <td> <asp:TextBox ID="test_address" runat="server" TextMode="MultiLine"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="test_address" ForeColor="Red"></asp:RequiredFieldValidator>
                     <p>
-                    &nbsp;</p></td>
+                        &nbsp;</p></td>
                 
             </tr>
             <tr>
@@ -125,16 +123,15 @@
             <tr>
                 <td>Date of Birth</td>
                 <td> <asp:TextBox ID="text_dob" runat="server" TextMode="Date"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="*" ControlToValidate="text_dob" ForeColor="Red"></asp:RequiredFieldValidator><p>
-                    &nbsp;</p></td>
+                    <p>
+                        &nbsp;</p></td>
                 
             </tr>
             <tr>
                 <td>Share of Nominee</td>
                 <td><asp:TextBox ID="text_share" runat="server" TextMode="Number"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ControlToValidate="text_share" ForeColor="Red"></asp:RequiredFieldValidator>
                     <p>
-                    &nbsp;</p></td>
+                        &nbsp;</p></td>
                 
             </tr>
             
@@ -142,7 +139,6 @@
                 <td>Contengencies on happening of which the nomination will become invalid.</td>
                 <td id="tabledata">
                     <asp:TextBox ID="text_cont" runat="server"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*" ControlToValidate="text_cont" ForeColor="Red"></asp:RequiredFieldValidator>
                     <p>&nbsp;</p>
                 </td>
                 

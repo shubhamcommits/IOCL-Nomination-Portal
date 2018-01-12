@@ -18,13 +18,13 @@ namespace Nomination_Portal
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            Response.Write("" + Table1.Rows.Count);
+            
 
             if (!Page.IsPostBack)
             {
 
-                TextBox1.Text = Request.QueryString.ToString();
-                int number = Convert.ToInt32(TextBox1.Text);
+                //TextBox1.Text = Session["ID"].ToString();
+                //int number = Convert.ToInt32(TextBox1.Text);
                 //GenerateTable(5, number);
 
 
@@ -100,6 +100,11 @@ namespace Nomination_Portal
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
             MySqlConnection conn1 = new MySqlConnection(conn);
             conn1.Open();
             MySqlCommand cmd = conn1.CreateCommand();
@@ -107,17 +112,16 @@ namespace Nomination_Portal
 
             for (int i = 0; i < GridView1.Rows.Count; i++)
             {
-                cmd.CommandText = "insert into add_guardian values('" + GridView1.Rows[i].Cells[0].Text + "', '" + ((TextBox)GridView1.Rows[i].FindControl("tb_guardian_name")).Text + "', '" + ((TextBox)GridView1.Rows[i].FindControl("tb_guardian_address")).Text + "', '" + Convert.ToDateTime(((TextBox)GridView1.Rows[i].FindControl("tb_guardian_dob")).Text).Year + "-" + Convert.ToDateTime(((TextBox)GridView1.Rows[i].FindControl("tb_guardian_dob")).Text).Month + "-" + Convert.ToDateTime(((TextBox)GridView1.Rows[i].FindControl("tb_guardian_dob")).Text).Day + "', '" + ((TextBox)GridView1.Rows[i].FindControl("tb_guardian_relation")).Text + "', " + (i + 1) + "," + 5 + ")";
+                cmd.CommandText = "insert into add_guardian values('" + GridView1.Rows[i].Cells[0].Text + "', '" + ((TextBox)GridView1.Rows[i].FindControl("tb_guardian_name")).Text + "', '" + ((TextBox)GridView1.Rows[i].FindControl("tb_guardian_address")).Text + "', '" + Convert.ToDateTime(((TextBox)GridView1.Rows[i].FindControl("tb_guardian_dob")).Text).Year + "-" + Convert.ToDateTime(((TextBox)GridView1.Rows[i].FindControl("tb_guardian_dob")).Text).Month + "-" + Convert.ToDateTime(((TextBox)GridView1.Rows[i].FindControl("tb_guardian_dob")).Text).Day + "', '" + ((TextBox)GridView1.Rows[i].FindControl("tb_guardian_relation")).Text + "'," + Convert.ToInt32(1) + ", " + (i + 1) + ", " + 0 + ")";
                 cmd.ExecuteNonQuery();
             }
+
+
             //ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "alert('" + message + "');", true);
             //cmd.CommandText = "insert into add_guardian values('" + "shubham" + "', '" + TextBox7.Text + "', '" + TextBox2.Text + "', '" + TextBox4.Text + "', '" + TextBox3.Text + "')";
             //cmd.ExecuteNonQuery();
 
-        }
 
-        protected void Button2_Click(object sender, EventArgs e)
-        {
 
         }
 

@@ -122,7 +122,7 @@
             </asp:TableHeaderRow>
 
 </asp:Table>-->
-       <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" BorderStyle="Dotted" GridLines="Both" Width="100%" CssClass="table-bordered table" CellSpacing="10" CellPadding="4" Font-Bold="true" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+       <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1" AutoGenerateColumns="False" BorderStyle="Dotted" GridLines="Both" Width="100%" CssClass="table-bordered table" CellSpacing="10" CellPadding="4" Font-Bold="true">
            <Columns>
         <asp:BoundField DataField="name" HeaderText="Name" SortExpression="Name" />
         <asp:TemplateField HeaderText="Name of the Guardian">
@@ -154,7 +154,9 @@
 
 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString='<%$ ConnectionStrings:nomination_portalConnectionString %>' ProviderName='<%$ ConnectionStrings:nomination_portalConnectionString.ProviderName %>' SelectCommand="select NAME from nom_nomination where dob >= date_sub(now(), interval 18 year)"></asp:SqlDataSource>
         <p></p>
-       <center><asp:Button ID="Button1" runat="server" Text="Add Guardian" BackColor="#ef7e3e" ForeColor="#000000" Width="28%" OnClick="Button1_Click"  /> <asp:Button ID="Button3" runat="server" Text="Clear" BackColor="#ef7e3e" ForeColor="#000000" Width="35%"  /></center><p></p>
+       <center>
+           <asp:Button ID="Button5" runat="server" Text="Button" />
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="Button4" runat="server" Text="Back" BackColor="#212A4F" ForeColor="White" Width="22%" />&nbsp;&nbsp; <asp:Button ID="Button3" runat="server" Text="Clear" BackColor="#ef7e3e" ForeColor="#000000" Width="35%"  /></center><p></p>
       <div>  &nbsp; &nbsp;  &nbsp;</div>
         
 	</div>
@@ -165,7 +167,7 @@
 
      <div class="w3_banner_info_grid" data="aos-slide-up">  
          <p></p>
-   <center><asp:Button ID="Button4" runat="server" Text="Back" BackColor="#212A4F" ForeColor="White" Width="22%" />&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="Button2" runat="server" Text="Save and Proceed" ForeColor="White" BackColor="#212a4f" Width="" Height=""  PostBackUrl="~/AlternateNominee.aspx" OnClick="Button2_Click"></asp:Button><!--<a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">READ INSTRUCTIONS & PROCEED</a>-->
+   <center>&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="Button2" runat="server" Text="Save and Proceed" ForeColor="White" BackColor="#212a4f" Width="" Height="" OnClick="Button2_Click"></asp:Button><!--<a href="#" class="w3ls_more" data-toggle="modal" data-target="#myModal">READ INSTRUCTIONS & PROCEED</a>-->
         
 	     </center>
 

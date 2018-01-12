@@ -48,16 +48,9 @@ namespace Nomination_Portal
 
                 ViewState["nom_dt"] = nom_dt;
                 GenerateTable(numOfRows);
-                TextBox1.Text = Request.QueryString.ToString();
-                //int id = Convert.ToInt32(TextBox1.Text);
 
-               /* MySqlConnection conn1 = new MySqlConnection(conn);
-                conn1.Open();
-                MySqlCommand cmd = conn1.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select TRNS_ID from nom_nomination order by TRNS_ID DESC LIMIT 1";
-                TextBox1.Text = "" + (cmd.ExecuteNonQuery() + 1);*/
-
+                TextBox1.Text = Session["form"].ToString();
+                
 
 
             }
@@ -242,7 +235,7 @@ namespace Nomination_Portal
                 cmd1.CommandType = CommandType.Text;
                 for (int i = 0; i < GridViewNom.Rows.Count; i++)
                 {
-                    cmd.CommandText = "insert into nom_alt_nomination values(" + Convert.ToInt32(TextBox1.Text) + ", '" + GridViewNom.Rows[i].Cells[0].Text + "', '" + GridViewNom.Rows[i].Cells[1].Text + "', '" + GridViewNom.Rows[i].Cells[2].Text + "', '" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Year + "-" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Month + "-" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Day + "'," + Convert.ToInt32(GridViewNom.Rows[i].Cells[4].Text) + ", '" + GridViewNom.Rows[i].Cells[5].Text + "', " + (i + 1) + ")";
+                    cmd.CommandText = "insert into nom_alt_nomination values(" + Convert.ToInt32(Session["ID"].ToString()) + ", '" + GridViewNom.Rows[i].Cells[0].Text + "', '" + GridViewNom.Rows[i].Cells[1].Text + "', '" + GridViewNom.Rows[i].Cells[2].Text + "', '" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Year + "-" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Month + "-" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Day + "'," + Convert.ToInt32(GridViewNom.Rows[i].Cells[4].Text) + ", '" + GridViewNom.Rows[i].Cells[5].Text + "', " + (i + 1) +", "+ 0 + ")";
                     cmd.ExecuteNonQuery();
                 }
 
@@ -276,11 +269,21 @@ namespace Nomination_Portal
                 MySqlConnection conn1 = new MySqlConnection(conn);
                 conn1.Open();
                 MySqlCommand cmd = conn1.CreateCommand();
+                MySqlCommand cmd1 = conn1.CreateCommand();
 
                 cmd.CommandType = CommandType.Text;
 
-                cmd.CommandText = "insert into nom_alt_nomination values(" + Convert.ToInt32(TextBox1.Text) + ", '" + "null" + "', '" + "null" + "', '" + "null" + "','" + "0000-00-00" + "' ," + 0 + ", '" + "null" + "', " + 1 + ")";
+                cmd.CommandText = "insert into nom_alt_nomination values(" + Convert.ToInt32(Session["ID"].ToString()) + ", '" + "null" + "', '" + "null" + "', '" + "null" + "','" + "0000-00-00" + "' ," + 0 + ", '" + "null" + "', " + 1 +", "+ 0 + ")";
                 cmd.ExecuteNonQuery();
+                cmd1.CommandText = "select count(*) from nom_nomination where dob >= date_sub(now(), interval 18 year)";
+
+                MySqlDataReader mdr = cmd1.ExecuteReader();
+                mdr.Read();
+
+                if (mdr.GetInt32("count(*)") > 0)
+                {
+                    Response.Redirect("Add Guardian.aspx?" + mdr.GetInt32("count(*)"));
+                }
 
             }
             catch (HttpException h)

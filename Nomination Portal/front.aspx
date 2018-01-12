@@ -102,109 +102,122 @@
 
                     <div class="w3_banner_info_grid">
 
-                        <h2 data-aos="fade-right"></h2>
+                        <h2 data-aos="fade-right">
+                            <asp:TextBox ID="TextBox1" runat="server" Enabled="False" Visible="False"></asp:TextBox>
+                        </h2>
                         <center><h2 data-aos="fade-right">&nbsp;</h2>
                             <h2 data-aos="fade-right">&nbsp;INDIAN-OIL PIPELINE DIVISION NOMINATION PORTAL</h2>
                         </center>
                         <h5></h5>
                         <p>&nbsp;</p>
                       <div class="market-updates row">
-                         <a href="#"> <div class="col-md-4 market-update-gd">
-				<div class="market-update-block clr-block-1">
-					<div class="col-md-4 market-update-right">
-						<i class="fa fa-file-text-o" ></i>
-					</div>
-					<div class="col-md-8 market-update-left">
-					<h4>Form 1</h4>
-						<h3 style="color:white;">Form 1</h3>
-						<p style="color:white;">Lorem Ipsum</p>
-					</div>
-				  <div class="clearfix"> </div>
-				</div>
-			</div> </a>
-			<a href="#"><div class="col-md-4 market-update-gd">
+                            <asp:LinkButton ID="form1_btn" runat="server" OnClick="form1_btn_Click">
+                                <div class="col-md-4 market-update-gd">
+                                    <div class="market-update-block clr-block-1">
+                                        <div class="col-md-4 market-update-right">
+                                            <i class="fa fa-file-text-o"></i>
+                                        </div>
+                                        <div class="col-md-12 market-update-left">
+                                            
+                                            <h3 style="color: white;">1</h3>
+                                            <p style="color: white;"><b>Employees' Graduity Scheme</b>
+                                            </p>
+                                            <p>
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                        </div>
+                                    </div>
+                                </div>
+                            </asp:LinkButton>
+                            <asp:LinkButton ID="form2" runat="server" OnClick="form2_Click"><div class="col-md-4 market-update-gd">
 				<div class="market-update-block clr-block-3">
 					<div class="col-md-4 market-update-right">
 						<i class="fa fa-file-text-o"></i>
 					</div>
-					<div class="col-md-8 market-update-left">
-						<h4>Form 2</h4>
-						<h3 style="color:white;">Form 2</h3>
-						<p style="color:white;">Lorem ipsum</p>
+					<div class="col-md-12 market-update-left">
+					<h4></h4>
+						<h3 style="color:white;">2</h3>
+						<p style="color:white;"><b>Superannuation Benefit Fund Scheme</b><br></p>
 					</div>
 				  <div class="clearfix"> </div>
 				</div>
-			</div></a>
-			<a href="#"><div class="col-md-4 col-xs-12 market-update-gd">
+			</div></asp:LinkButton>
+                            <asp:LinkButton ID="form3" runat="server" OnClick="form3_Click"><div class="col-md-4 col-xs-12 market-update-gd">
 				<div class="market-update-block clr-block-1">
 					<div class="col-md-4 market-update-right">
 						<i class="fa fa-file-text-o" ></i>
 					</div>
-					<div class="col-md-8 market-update-left">
-					<h4>Form 3</h4>
-						<h3 style="color:white;">Form 3</h3>
-						<p style="color:white;">Lorem ipsum</p>
+					<div class="col-md-12 market-update-left">
+					<h4></h4>
+						<h3 style="color:white;">3</h3>
+						<p style="color:white;"><b>For Amount due other than graudity and provident fund</b></p>
 					</div>
 				  <div class="clearfix"> </div>
 				</div>
-			</div></a>
+			</div>
+                                </asp:LinkButton>
 			
 			
 		   <div class="clearfix"> </div>
 		</div>	
                         <div class="market-updates row">
-			<a href="#"><div class="col-md-3 market-update-gd">
+            <asp:LinkButton ID="form4" runat="server" OnClick="form4_Click"><div class="col-md-3 market-update-gd">
 				<div class="market-update-block clr-block-3">
 					<div class="col-md-4 market-update-right">
 						<i class="fa fa-file-text-o"></i>
 					</div>
-					<div class="col-md-8 market-update-left">
-						<h4>Form 4</h4>
-						<h3 style="color:white;">Form 4</h3>
-						<p style="color:white;">Lorem ipsum</p>
+					<div class="col-md-12 market-update-left">
+						<!--<h4>Form 4</h4>-->
+						<h3 style="color:white;">4</h3>
+						<p style="color:white;"><b>EPS '95 <br>Form 2(Revised)</b></p>
 					</div>
 				  <div class="clearfix"> </div>
 				</div>
-			</div></a>
-					<a href="#"><div class="col-md-3 market-update-gd">
+			</div></asp:LinkButton>
+            <asp:LinkButton ID="form5" runat="server" OnClick="form5_Click"><div class="col-md-3 market-update-gd">
 				<div class="market-update-block clr-block-1">
 					<div class="col-md-4 market-update-right">
 						<i class="fa fa-file-text-o" ></i>
 					</div>
-					<div class="col-md-8 market-update-left">
-					<h4>Form 5</h4>
-						<h3 style="color:white;">Form 5</h3>
-						<p style="color:white;">Lorem ipsum</p>
+					<div class="col-md-12 market-update-left">
+					<!--<h4>Form 5</h4>-->
+						<h3 style="color:white;">5
+						</h3>
+						<p style="color:white;"><b>
+                            IOEWCS<b><br></p>
 					</div>
 				  <div class="clearfix"> </div>
 				</div>
-			</div></a>
-			<a href="#"><div class="col-md-3 market-update-gd">
+			</div></asp:LinkButton><a href="Home.aspx.cs"></a>
+            <asp:LinkButton ID="form6" runat="server" OnClick="form6_Click"><div class="col-md-3 market-update-gd">
 				<div class="market-update-block clr-block-3">
 					<div class="col-md-4 market-update-right">
 						<i class="fa fa-file-text-o"></i>
 					</div>
-					<div class="col-md-8 market-update-left">
-						<h4>Form 6</h4>
-						<h3 style="color:white;">Form 6</h3>
-						<p style="color:white;">Lorem ipsum</p>
+					<div class="col-md-12 market-update-left">
+						<!--<h4>6</h4>-->
+						<h3 style="color:white;">6</h3>
+						<p style="color:white;"><b>EPF Declaration Form Rule 10</b>
+						 </p>
 					</div>
 				  <div class="clearfix"> </div>
 				</div>
-			</div></a>
-                            			<a href="#"><div class="col-md-3 market-update-gd">
+			</div></asp:LinkButton>
+
+            <asp:LinkButton ID="form7" runat="server" OnClick="form7_Click"><div class="col-md-3 market-update-gd">
 				<div class="market-update-block clr-block-1">
 					<div class="col-md-4 market-update-right">
 						<i class="fa fa-file-text-o" ></i>
 					</div>
-					<div class="col-md-8 market-update-left">
-					<h4>Form 7</h4>
-						<h3 style="color:white;">Form 7</h3>
-						<p style="color:white;">Lorem ipsum</p>
+					<div class="col-md-12 market-update-left">
+					<!--<h4></h4>-->
+						<h3 style="color:white;">7</h3>
+						<p style="color:white;"><b>Appointment of Beneficiary</b></p>
 					</div>
 				  <div class="clearfix"> </div>
 				</div>
-			</div></a>
+			</div></asp:LinkButton>
                             	
 
 		   <div class="clearfix"> </div>
@@ -214,11 +227,7 @@
                         
                     </div>
                 </div>
-                <div class="thim-click-to-bottom">
-                    <a href="#addnomination" class="scroll">
-                        <i class="fa fa-arrows-v" aria-hidden="true"></i>
-                    </a>
-                </div>
+                
             </div>
         </div>
     </div>

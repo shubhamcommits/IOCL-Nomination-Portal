@@ -123,7 +123,7 @@
 			<span><input type="checkbox" />&nbsp; Remember Me</span>
 			<h6><a href="#">Forgot Password?</a></h6>
 				<div class="clearfix"></div>
-				<input type="submit" value="Sign In" name="login">
+            <asp:Button ID="Button1" runat="server" Text="Button" PostBackUrl="~/front.aspx" BackColor="#53D769" />
 		</form>
 	
 </div>

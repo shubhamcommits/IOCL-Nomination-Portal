@@ -2374,9 +2374,11 @@ ul.inbox-pagination li {
 }
 .w3layouts-main {
     width: 30%;
-    margin: 5em auto;
     background: #272727;
     padding: 42px 35px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5em;
 }
 /*--//header--*/
 /*--login--*/

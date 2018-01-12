@@ -25,6 +25,7 @@ namespace Nomination_Portal
             if (IsPostBack)
             {
                 CheckMySqlConnection();
+                MultiView1.SetActiveView(View1);
                
             }
             if (!Page.IsPostBack)
@@ -48,16 +49,9 @@ namespace Nomination_Portal
                 ViewState["nom_dt"] = nom_dt;
 
                 GenerateTable(numOfRows);
+                MultiView1.SetActiveView(View1);
 
-                MySqlConnection conn1 = new MySqlConnection(conn);
-                conn1.Open();
-                MySqlCommand cmd = conn1.CreateCommand();
-                
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select TRNS_ID from nom_nomination order by TRNS_ID DESC LIMIT 1";
-                MySqlDataReader mdr = cmd.ExecuteReader();
-                mdr.Read();
-                TextBox1.Text = "" + (mdr.GetInt32("TRNS_ID")+1);
+                TextBox1.Text = "" + Session["form"].ToString();
 
 
             }
@@ -151,8 +145,8 @@ namespace Nomination_Portal
         {
             Table table = (Table)Page.FindControl("Table1");
 
-            if (table != null)
-            {
+            //if (table != null)
+            /*{
                 for (int i = 0; i < rowsCount; i++)
                 {
                     for (int j = 0; j < colsCount; j++)
@@ -171,7 +165,7 @@ namespace Nomination_Portal
 
                 }
 
-            }
+            }*/
 
         }
         protected void GenerateTable(int rowsCount)
@@ -239,12 +233,12 @@ namespace Nomination_Portal
                 cmd.CommandType = CommandType.Text;
                 for (int i = 0; i < GridViewNom.Rows.Count; i++)
                 {
-                    cmd.CommandText = "insert into nom_nomination values(" + Convert.ToInt32(TextBox1.Text) + ", '" + GridViewNom.Rows[i].Cells[0].Text + "', '" + GridViewNom.Rows[i].Cells[1].Text + "', '" + GridViewNom.Rows[i].Cells[2].Text + "', '" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Year + "-" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Month + "-" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Day + "'," + Convert.ToInt32(GridViewNom.Rows[i].Cells[4].Text) + ", '" + GridViewNom.Rows[i].Cells[5].Text + "', " + (i + 1) + ")";
+                    cmd.CommandText = "insert into nom_nomination values(" + Convert.ToInt32(Session["ID"].ToString()) + ", '" + GridViewNom.Rows[i].Cells[0].Text + "', '" + GridViewNom.Rows[i].Cells[1].Text + "', '" + GridViewNom.Rows[i].Cells[2].Text + "', '" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Year + "-" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Month + "-" + (Convert.ToDateTime(GridViewNom.Rows[i].Cells[3].Text)).Day + "'," + Convert.ToInt32(GridViewNom.Rows[i].Cells[4].Text) + ", '" + GridViewNom.Rows[i].Cells[5].Text + "', " + (i + 1) +", " + 0 + ")";
                     cmd.ExecuteNonQuery();
                 }
                 
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Data Saved, Sucessfully!');</script>");
-                Response.Redirect("WebForm6.aspx?" + TextBox1.Text);
+                Response.Redirect("WebForm6.aspx?");
 
             }
 
@@ -254,6 +248,42 @@ namespace Nomination_Portal
             }
        
 
+        }
+        protected void Button1_Click1(object sender, EventArgs e)
+        {
+            try
+            {
+                MySqlConnection conn1 = new MySqlConnection(conn);
+                conn1.Open();
+                MySqlCommand cmd = conn1.CreateCommand();
+                MySqlCommand cmd1 = conn1.CreateCommand();
+
+                cmd.CommandType = CommandType.Text;
+
+                cmd.CommandText = "insert into nom_alt_nomination values(" + Convert.ToInt32(Session["ID"].ToString()) + ", '" + "null" + "', '" + "null" + "', '" + "null" + "','" + "0000-00-00" + "' ," + 0 + ", '" + "null" + "', " + 1 + ", " + 0 + ")";
+                cmd.ExecuteNonQuery();
+                cmd1.CommandText = "select count(*) from nom_nomination where dob >= date_sub(now(), interval 18 year)";
+
+                MySqlDataReader mdr = cmd1.ExecuteReader();
+                mdr.Read();
+
+                if (mdr.GetInt32("count(*)") > 0)
+                {
+                    Response.Redirect("Add Guardian.aspx?" + mdr.GetInt32("count(*)"));
+                }
+
+            }
+            catch (HttpException h)
+            {
+
+                h.GetHtmlErrorMessage();
+
+
+            }
+            catch (MySqlException m)
+            {
+                m.GetBaseException();
+            }
         }
     }
 
