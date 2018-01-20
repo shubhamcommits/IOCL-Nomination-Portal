@@ -32,7 +32,7 @@ namespace Nomination_Portal
         {
             Session["ID"] = TextBox1.Text;
             Session["form"] = "1";
-            Response.Redirect("~/Nomination.aspx");
+            Response.Redirect("~/Employees_graduity_scheme.aspx");
             
         }
 
@@ -40,14 +40,14 @@ namespace Nomination_Portal
         {
             Session["ID"] = TextBox1.Text;
             Session["form"] = "2";
-            Response.Redirect("~/Nomination.aspx");
+            Response.Redirect("~/SABF.aspx");
         }
 
         protected void form3_Click(object sender, EventArgs e)
         {
             Session["ID"] = TextBox1.Text;
             Session["form"] = "3";
-            Response.Redirect("~/Nomination.aspx");
+            Response.Redirect("~/for_amount_due.aspx");
 
         }
 
@@ -62,7 +62,7 @@ namespace Nomination_Portal
         {
             Session["ID"] = TextBox1.Text;
             Session["form"] = "5";
-            Response.Redirect("~/Nomination.aspx");
+            Response.Redirect("~/IOEWCS.aspx");
         }
 
         protected void form6_Click(object sender, EventArgs e)

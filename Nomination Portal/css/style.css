@@ -530,7 +530,7 @@ b, strong {
     outline-offset: 12px;
     outline: 7px double #ff4f81;
     outline-offset: 6px;
-    width: 22%;
+    width: 84%;
 	color: #212a4f;
     margin-left: 0.3em;
     font-weight: 700;
@@ -636,6 +636,9 @@ b, strong {
 /* Skills */
 .skills,.contact,.education,.about,.portfolio{
 	padding:5em 0;
+    top: -83px;
+    left: 0px;
+    height: 453px;
 }
 .skill-grids-right {
     margin-top: 1em;
@@ -1202,6 +1205,8 @@ ul.top-links li a i.fa {
     -moz-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
     -ms-transition: all 0.5s ease-in-out;
+}
+ut;
 }
 ul.top-links li a i.fa:hover {
     background: #dedede;

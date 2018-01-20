@@ -116,15 +116,15 @@
 
     								<li>
     									<ul class="agileits-address-text">
-    										<li><b></b></li>
+    										
     										<li>
 
-                         <p><center><input type="checkbox" required name="terms"> I hereby declare that I have understood the above information. &nbsp;</center></p>
-                                                 <center><p>&nbsp; <asp:Button ID="Button1" runat="server" Text="Proceed"   PostBackUrl="~/Nomination.aspx" /></p></center>
+                         <p><input type="checkbox" required name="terms"> I hereby declare that I have understood the above information. &nbsp;</center></p>
+                            <center><p class="text-center"> <asp:Button ID="Button1" runat="server" Text="Proceed" CssClass="btn-lg"  PostBackUrl="~/front.aspx" /></p></center>
                         </li>
     									</ul>
     								</li>
-                    <center><li></li></center>
+                 
     							</ul>
     						</div>
     						<div class="clearfix"> </div>

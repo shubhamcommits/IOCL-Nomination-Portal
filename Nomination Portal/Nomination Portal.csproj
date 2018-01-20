@@ -75,7 +75,7 @@
     <Content Include="App_Code\DataSet_rpt_nom.xsc">
       <DependentUpon>DataSet_rpt_nom.xsd</DependentUpon>
     </Content>
-    <Content Include="WebForm9.aspx" />
+    <Content Include="SABF.aspx" />
     <None Include="App_Code\DataSet_rpt_nom.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -95,21 +95,21 @@
   <ItemGroup>
     <Content Include="Web.config" />
     <Content Include="Home.aspx" />
-    <Content Include="Nomination.aspx" />
-    <Content Include="FinalSubmission.aspx" />
-    <Content Include="Preview.aspx" />
+    <Content Include="Employees_graduity_scheme.aspx" />
+    <Content Include="IOEWCS.aspx" />
+    <Content Include="for_amount_due.aspx" />
     <Content Include="Add Guardian.aspx" />
     <Content Include="WebForm6.aspx" />
     <Content Include="front.aspx" />
     <Content Include="Login.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="WebForm9.aspx.cs">
-      <DependentUpon>WebForm9.aspx</DependentUpon>
+    <Compile Include="SABF.aspx.cs">
+      <DependentUpon>SABF.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm9.aspx.designer.cs">
-      <DependentUpon>WebForm9.aspx</DependentUpon>
+    <Compile Include="SABF.aspx.designer.cs">
+      <DependentUpon>SABF.aspx</DependentUpon>
     </Compile>
     <Content Include="App_Code\DataSet_rpt_nom.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -124,26 +124,26 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Nomination.aspx.cs">
-      <DependentUpon>Nomination.aspx</DependentUpon>
+    <Compile Include="Employees_graduity_scheme.aspx.cs">
+      <DependentUpon>Employees_graduity_scheme.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Nomination.aspx.designer.cs">
-      <DependentUpon>Nomination.aspx</DependentUpon>
+    <Compile Include="Employees_graduity_scheme.aspx.designer.cs">
+      <DependentUpon>Employees_graduity_scheme.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FinalSubmission.aspx.cs">
-      <DependentUpon>FinalSubmission.aspx</DependentUpon>
+    <Compile Include="IOEWCS.aspx.cs">
+      <DependentUpon>IOEWCS.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FinalSubmission.aspx.designer.cs">
-      <DependentUpon>FinalSubmission.aspx</DependentUpon>
+    <Compile Include="IOEWCS.aspx.designer.cs">
+      <DependentUpon>IOEWCS.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Preview.aspx.cs">
-      <DependentUpon>Preview.aspx</DependentUpon>
+    <Compile Include="for_amount_due.aspx.cs">
+      <DependentUpon>for_amount_due.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Preview.aspx.designer.cs">
-      <DependentUpon>Preview.aspx</DependentUpon>
+    <Compile Include="for_amount_due.aspx.designer.cs">
+      <DependentUpon>for_amount_due.aspx</DependentUpon>
     </Compile>
     <Compile Include="Add Guardian.aspx.cs">
       <DependentUpon>Add Guardian.aspx</DependentUpon>

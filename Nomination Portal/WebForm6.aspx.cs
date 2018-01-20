@@ -49,7 +49,7 @@ namespace Nomination_Portal
                 ViewState["nom_dt"] = nom_dt;
                 GenerateTable(numOfRows);
 
-                TextBox1.Text = Session["form"].ToString();
+                //TextBox1.Text = Session["form"].ToString();
                 
 
 

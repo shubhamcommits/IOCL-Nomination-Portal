@@ -96,14 +96,8 @@
                                 <!-- Hidden li included to remove active class from addnomination link when scrolled up past addnomination section -->
 
                                 <li class="hidden"><a class="page-scroll" href="#page-top"></a>	</li>
-                                <li><h2 style="color:white;">INDIAN-OIL PIPELINE DIVISION NOMINATION PORTAL</h2></li>
-                                <!--<li><a class="page-scroll scroll" href="#home">Home</a></li>
-                                <li><a class="page-scroll scroll" href="#home">Instructions</a></li>
-                                <li><a class="page-scroll scroll" href="#about">Add Nominations</a></li>
-                                <li><a class="page-scroll scroll" href="#addalternativenomination">Add Alternative Nomination</a></li>
-                                <li><a class="page-scroll scroll" href="#addguardian">Add Guardian </a></li>
-                                <li><a class="page-scroll scroll" href="#preview">Preview</a></li>
-                                <li><a class="page-scroll scroll" href="#finalsubmission">Final Submission</a></li>-->
+                                <li><h3 style="color:white;">INDIAN-OIL PIPELINE DIVISION NOMINATION PORTAL</h3></li>
+                              
                             </ul>
                         </div>
                         <!-- /.navbar-collapse -->
@@ -113,25 +107,32 @@
                 </div>
 
                 <div class="log-w3 about">
+
                    <div class="col-md-2"></div>
 <div class="w3layouts-main col-lg-8 col-xs-12">
     <h2 data-aos="fade-right">Sign In Now</h2>
 		<form action="#" method="post">
-			<input type="email" class="ggg" name="Email" placeholder="E-MAIL" required="">
+			<input type="email" class="ggg" name="Emp ID" placeholder="EMP ID" required="">
 			<input type="password" class="ggg" name="Password" placeholder="PASSWORD" required=""> &nbsp;
                 
 			<span><input type="checkbox" />&nbsp; Remember Me</span>
 			<h6><a href="#">Forgot Password?</a></h6>
-				<div class="clearfix"></div>
-            <asp:Button ID="Button1" runat="server" Text="Button" PostBackUrl="~/front.aspx" BackColor="#53D769" />
+				<div class="clearfix text-center">
+                    <asp:Button ID="Button1" runat="server" Text="Login" PostBackUrl="~/Home.aspx" BackColor="#53D769" CssClass="btn-lg text-center" />
+				</div>
+            
 		</form>
 	
 </div>
 </div>
+
+                
                 
                 <!-- //header -->
             </div>
+           
         </div>
+        
     </div>
             
 
